@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { RECIPES_DATA, Recipe } from "../data/recipes";
+import { isNutRecipe } from "./CatalogView";
 
 interface SearchCommandModalProps {
   isOpen: boolean;
@@ -99,7 +100,15 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
             }}
             className="px-2.5 py-1 rounded bg-white hover:bg-[#eae8e5] text-[#1b1c1a] border border-[#d3c3be]/30 transition-colors cursor-pointer shrink-0"
           >
-            Catálogo 50+
+            Catálogo ({RECIPES_DATA.length})
+          </button>
+          <button
+            onClick={() => {
+              setQuery("avellana");
+            }}
+            className="px-2.5 py-1 rounded bg-[#fed269]/25 hover:bg-[#fed269]/40 text-[#775a00] border border-[#fed269]/50 transition-colors cursor-pointer shrink-0 font-bold"
+          >
+            🌰 Frutos Secos
           </button>
           <button
             onClick={() => {
@@ -141,7 +150,7 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
                 No encontramos fórmulas para &ldquo;{query}&rdquo;
               </p>
               <p className="font-body-sm text-[12px] text-[#817470] mt-1">
-                Prueba buscando por tipo de chocolate (Negro, Ruby), molde (Magnético) o relleno (Ganache, Caramelo).
+                Prueba buscando por tipo de fruto seco (Avellana, Pistacho, Almendra, Nuez), molde o cobertura.
               </p>
             </div>
           ) : (
@@ -159,9 +168,16 @@ export const SearchCommandModal: React.FC<SearchCommandModalProps> = ({
                     {recipe.id}
                   </div>
                   <div>
-                    <h4 className="font-serif font-bold text-[14px] text-[#1b1c1a] group-hover:text-[#775a00] transition-colors">
-                      {recipe.title}
-                    </h4>
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="font-serif font-bold text-[14px] text-[#1b1c1a] group-hover:text-[#775a00] transition-colors">
+                        {recipe.title}
+                      </h4>
+                      {isNutRecipe(recipe) && (
+                        <span className="text-[11px]" title="Contiene frutos secos">
+                          🌰
+                        </span>
+                      )}
+                    </div>
                     <p className="font-body-sm text-[12px] text-[#817470]">
                       {recipe.chocolate} • {recipe.mold} • {recipe.filling}
                     </p>

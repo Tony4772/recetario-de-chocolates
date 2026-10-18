@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Recipe, RECIPES_DATA } from "../data/recipes";
+import { isNutRecipe } from "./CatalogView";
 
 interface RecipeDetailViewProps {
   recipeId: number;
@@ -85,10 +86,16 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
           {/* Header Block */}
           <div className="border-b border-[#817470]/15 pb-6">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-label-technical text-[11px] text-[#775a00] font-bold uppercase tracking-wider bg-[#fed269]/25 px-2.5 py-0.5 rounded">
                   Fórmula de Taller #{String(recipe.id).padStart(2, "0")}
                 </span>
+                {isNutRecipe(recipe) && (
+                  <span className="font-label-technical text-[10px] text-[#775a00] font-bold uppercase tracking-wider bg-[#fed269]/25 px-2 py-0.5 rounded border border-[#fed269]/40 flex items-center gap-1">
+                    <span>🌰</span>
+                    <span>Con Frutos Secos</span>
+                  </span>
+                )}
                 <span className="text-[#817470]">•</span>
                 <span className="font-label-technical text-[11px] text-[#4f4541] uppercase tracking-wider">
                   Capítulo {recipe.chapter}: {recipe.chapterName}

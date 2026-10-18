@@ -1,5 +1,6 @@
 import React from "react";
 import { Recipe } from "../data/recipes";
+import { isNutRecipe } from "./CatalogView";
 
 interface RecipeModalProps {
   recipe: Recipe | null;
@@ -27,10 +28,16 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         {/* Modal Header */}
         <div className="p-6 bg-[#f6f3f0] border-b border-[#817470]/15 flex items-start justify-between relative">
           <div>
-            <div className="flex items-center gap-2 mb-1.5">
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
               <span className="font-label-technical text-[11px] text-[#775a00] font-bold uppercase tracking-wider">
                 Receta #{String(recipe.id).padStart(2, "0")}
               </span>
+              {isNutRecipe(recipe) && (
+                <span className="font-label-technical text-[10px] text-[#775a00] font-bold uppercase tracking-wider bg-[#fed269]/25 px-2 py-0.5 rounded border border-[#fed269]/40 flex items-center gap-1">
+                  <span>🌰</span>
+                  <span>Con Frutos Secos</span>
+                </span>
+              )}
               <span className="text-[#817470]">•</span>
               <span className="font-label-technical text-[11px] text-[#4f4541] uppercase tracking-wider">
                 {recipe.chapterName}

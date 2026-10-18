@@ -1640,5 +1640,142 @@ export const RECIPES_DATA: Recipe[] = [
       "Dosificar a 28°C, reposar 24h y sellar con doble rasqueta caliente."
     ],
     tip: "La obra cumbre del recetario: el cacao Criollo Porcelana aporta una acidez de frutos secos y flores sin rastro de astringencia amarga."
+  },
+  {
+    id: 51,
+    title: "Bombón Cúpula Rocher de Avellana Entera del Piamonte y Gianduja de Leche",
+    chapter: 1,
+    chapterName: "Bombones Clásicos en Policarbonato",
+    mold: "CW1420 Cúpula Esférica (24 cav.)",
+    moldType: "Clásico",
+    chocolate: "Con Leche 38%",
+    chocolateType: "Leche",
+    filling: "Gianduja",
+    tempMelt: "45-48°C",
+    tempCool: "27-28°C",
+    tempWork: "29.5°C",
+    crystHours: "14h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.32,
+    shellThickness: "0.8 mm",
+    ingredients: [
+      "240g Cobertura Leche 38% atemperada",
+      "24 Avellanas enteras IGP Piamonte tostadas a 150°C",
+      "120g Gianduja cremosa de avellana y leche",
+      "30g Feuilletine (barquillo crujiente)",
+      "15g Manteca de cacao pura"
+    ],
+    steps: [
+      "Tostar las avellanas a 150°C durante 18 minutos; frotar con paño para retirar pieles y enfriar a 20°C.",
+      "Encamisar el molde CW1420 con cobertura con leche a 29.5°C, escurrir y raspar limpio.",
+      "Pre-cristalizar la gianduja fluida con la manteca de cacao a 26°C y mezclar la feuilletine.",
+      "Dosificar una base de gianduja e incrustar con pinzas una avellana entera en el corazón de cada cavidad.",
+      "Completar el relleno dejando 1.5mm y sellar con cobertura con leche tras 3 horas de reposo."
+    ],
+    tip: "La avellana entera debe estar a 20-22°C al introducirse; si está fría condensará humedad y si está caliente fundirá la camisa."
+  },
+  {
+    id: 52,
+    title: "Bombón Diamante de Nuez de Macadamia Caramelizada y Caramelo Salado",
+    chapter: 2,
+    chapterName: "Bombones Geométricos y Técnicas de Pintado",
+    mold: "CW1614 Diamante Facetado (28 cav.)",
+    moldType: "Magnético",
+    chocolate: "Negro 70%",
+    chocolateType: "Negro",
+    filling: "Caramelo",
+    tempMelt: "50-52°C",
+    tempCool: "28-29°C",
+    tempWork: "31.5°C",
+    crystHours: "12h @ 16°C",
+    difficulty: "Maestro Chocolatero",
+    pips: "•••",
+    aw: 0.62,
+    shellThickness: "0.8 mm",
+    ingredients: [
+      "250g Cobertura Negra 70% Guanaja",
+      "28 Nueces de macadamia enteras garrapiñadas",
+      "110g Caramelo blando de mantequilla y flor de sal",
+      "40g Praliné fino de macadamia",
+      "Manteca de cacao dorada metalizada"
+    ],
+    steps: [
+      "Salpicar las aristas del molde diamante con manteca dorada templada a 29°C.",
+      "Encamisar con chocolate negro a 31.5°C vibrando energéticamente.",
+      "Caramelizar las macadamias con azúcar y flor de sal hasta rubio crujiente y dejar enfriar a 21°C.",
+      "Mangar una perla de caramelo fluido a 27°C, insertar una macadamia garrapiñada y cubrir con praliné.",
+      "Obturar el molde con cobertura negra y reposar 12h a 16°C para desmolde limpio con brillo espejo."
+    ],
+    tip: "El alto contenido graso monoinsaturado de la macadamia aporta una textura cremosa única en el mordisco."
+  },
+  {
+    id: 53,
+    title: "Bombón Lingote de Pistacho Verde de Bronte DOP y Ganache Blanco",
+    chapter: 1,
+    chapterName: "Bombones Clásicos en Policarbonato",
+    mold: "CW1908 Lingote Geométrico (32 cav.)",
+    moldType: "Clásico",
+    chocolate: "Blanco 34%",
+    chocolateType: "Blanco",
+    filling: "Praliné",
+    tempMelt: "40-45°C",
+    tempCool: "25-26°C",
+    tempWork: "28.5°C",
+    crystHours: "16h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.48,
+    shellThickness: "0.9 mm",
+    ingredients: [
+      "260g Cobertura Blanca Ivoire 35%",
+      "32 Pistachos verdes de Bronte DOP tostados y salados",
+      "130g Pasta pura de pistacho verde esmeralda 100%",
+      "25g Manteca de cacao desodorizada",
+      "1g Flor de sal marina"
+    ],
+    steps: [
+      "Encamisar el molde lingote con cobertura blanca atemperada a 28.5°C cuidando las esquinas rectas.",
+      "Fundir la manteca de cacao a 35°C e integrar con la pasta pura de pistacho y la sal a 26°C.",
+      "Disponer en cada lingote un pistacho entero tostado de Bronte.",
+      "Dosificar el praliné de pistacho a 25°C cubriendo el fruto seco.",
+      "Sellar la base con chocolate blanco atemperado tras fijación de la superficie."
+    ],
+    tip: "Los pistachos de Bronte tienen notas aromáticas resinosas intensas que equilibran perfectamente la dulzura de la manteca láctea."
+  },
+  {
+    id: 54,
+    title: "Bombón Semiesfera de Almendra Marcona Garrapiñada y Chocolate Negro 72%",
+    chapter: 1,
+    chapterName: "Bombones Clásicos en Policarbonato",
+    mold: "CW1032 Semiesfera (28 cav.)",
+    moldType: "Clásico",
+    chocolate: "Negro 70%",
+    chocolateType: "Negro",
+    filling: "Praliné",
+    tempMelt: "50-52°C",
+    tempCool: "28-29°C",
+    tempWork: "31.5°C",
+    crystHours: "12h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.38,
+    shellThickness: "0.85 mm",
+    ingredients: [
+      "250g Cobertura Negra Araguani 72%",
+      "28 Almendras Marcona enteras garrapiñadas al punto de sal",
+      "120g Praliné de almendra Marcona 60%",
+      "30g Cobertura con leche para estabilizar emulsión",
+      "15g Manteca de cacao pura"
+    ],
+    steps: [
+      "Garrapiñar las almendras Marcona con un toque de sal marina hasta conseguir una capa de caramelo cristalino fina.",
+      "Atemperar la cobertura negra a 31.5°C y encamisar las semiesferas CW1032.",
+      "Emulsionar el praliné de almendra con la manteca de cacao y la cobertura de leche a 27°C.",
+      "Colocar una almendra Marcona garrapiñada en cada cúpula y rellenar con el praliné.",
+      "Reposar a 16°C con 60% HR y obturar con cobertura negra atemperada."
+    ],
+    tip: "La almendra Marcona española aporta un crujiente incomparable y un perfil dulce-oleico de la más alta nobleza."
   }
 ];
+
