@@ -670,7 +670,7 @@ export const TemperingCurvasView: React.FC = () => {
 
             {/* Right Column: Mold Dosimetry Calculator (5 cols) */}
             <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="p-5 rounded-xl bg-white shadow-md border border-[#d3c3be]/35 flex flex-col gap-4">
+              <div id="dosimetry-calculator" className="p-5 rounded-xl bg-white shadow-md border border-[#d3c3be]/35 flex flex-col gap-4 scroll-mt-28">
                 <div className="flex items-center justify-between pb-1 border-b border-[#d3c3be]/25">
                   <div>
                     <span className="font-label-technical text-[10px] text-[#817470] uppercase tracking-wider block font-bold">
