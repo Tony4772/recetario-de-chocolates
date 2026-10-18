@@ -76,7 +76,7 @@ export default function App() {
       />
 
       {/* Main Content View Container */}
-      <main className="flex-1 pt-24 sm:pt-28">
+      <main className="flex-1 pt-32 sm:pt-36 xl:pt-28">
         {currentTab === "catalog" && (
           <CatalogView
             onSelectRecipe={handleSelectRecipe}

@@ -40,9 +40,9 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="printable-recipe-sheet bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-[0px_20px_48px_-8px_rgba(35,20,14,0.25)] flex flex-col border border-[#d3c3be]/40 animate-in fade-in zoom-in-95 duration-200">
+      <div className="printable-recipe-sheet bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-[0px_20px_48px_-8px_rgba(35,20,14,0.25)] flex flex-col border border-[#d3c3be]/40 animate-in fade-in zoom-in-95 duration-200">
         {/* Modal Header */}
-        <div className="p-6 bg-[#f6f3f0] border-b border-[#817470]/15 flex items-start justify-between relative">
+        <div className="p-4 sm:p-6 bg-[#f6f3f0] border-b border-[#817470]/15 flex items-start justify-between relative gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1.5 flex-wrap">
               <span className="font-label-technical text-[11px] text-[#775a00] font-bold uppercase tracking-wider">
@@ -59,13 +59,13 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
                 {recipe.chapterName}
               </span>
             </div>
-            <h2 className="font-headline-md text-[24px] font-serif font-bold text-[#1b1c1a] leading-snug">
+            <h2 className="font-headline-md text-[20px] sm:text-[24px] font-serif font-bold text-[#1b1c1a] leading-snug">
               {recipe.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-[#eae8e5] text-[#1b1c1a] flex items-center justify-center hover:bg-[#d3c3be] transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-full bg-[#eae8e5] text-[#1b1c1a] flex items-center justify-center hover:bg-[#d3c3be] transition-colors cursor-pointer shrink-0"
             type="button"
             aria-label="Cerrar modal"
           >
@@ -74,42 +74,42 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 md:p-8 space-y-6">
+        <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
           {/* Visual Thermal Curve Gauge Component */}
-          <div className="bg-[#f6f3f0] p-5 rounded-xl border border-[#d3c3be]/40">
-            <div className="flex items-center justify-between mb-3">
-              <span className="font-label-technical text-[11px] uppercase tracking-widest text-[#817470]">
+          <div className="bg-[#f6f3f0] p-4 sm:p-5 rounded-xl border border-[#d3c3be]/40">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-3">
+              <span className="font-label-technical text-[10.5px] uppercase tracking-widest text-[#817470] font-bold">
                 Curva Cristalográfica Requerida (°C)
               </span>
-              <span className="font-label-technical text-[11px] font-bold text-[#1b1c1a] uppercase bg-[#e5e2df] px-2 py-0.5 rounded">
+              <span className="font-label-technical text-[10.5px] font-bold text-[#1b1c1a] uppercase bg-[#e5e2df] px-2 py-0.5 rounded self-start sm:self-auto">
                 {recipe.chocolate}
               </span>
             </div>
             <div className="relative py-2">
               <div className="flex items-center justify-between text-center relative z-10">
-                <div className="bg-white px-3 py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-1">
-                  <span className="block text-label-technical text-[10px] text-[#817470] uppercase">
+                <div className="bg-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-0.5 sm:mx-1">
+                  <span className="block text-label-technical text-[9px] sm:text-[10px] text-[#817470] uppercase">
                     1. Fusión
                   </span>
-                  <span className="font-headline-sm text-[18px] text-[#ba1a1a] font-serif font-bold">
+                  <span className="font-headline-sm text-[15px] sm:text-[18px] text-[#ba1a1a] font-serif font-bold">
                     {recipe.tempMelt}
                   </span>
                 </div>
-                <div className="w-8 sm:w-12 h-0.5 bg-[#d3c3be]/80 hidden sm:block"></div>
-                <div className="bg-white px-3 py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-1">
-                  <span className="block text-label-technical text-[10px] text-[#817470] uppercase">
+                <div className="w-4 sm:w-12 h-0.5 bg-[#d3c3be]/80 hidden sm:block"></div>
+                <div className="bg-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-0.5 sm:mx-1">
+                  <span className="block text-label-technical text-[9px] sm:text-[10px] text-[#817470] uppercase">
                     2. Pre-Cristal
                   </span>
-                  <span className="font-headline-sm text-[18px] text-[#0066cc] font-serif font-bold">
+                  <span className="font-headline-sm text-[15px] sm:text-[18px] text-[#0066cc] font-serif font-bold">
                     {recipe.tempCool}
                   </span>
                 </div>
-                <div className="w-8 sm:w-12 h-0.5 bg-[#d3c3be]/80 hidden sm:block"></div>
-                <div className="bg-white px-3 py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-1">
-                  <span className="block text-label-technical text-[10px] text-[#817470] uppercase">
+                <div className="w-4 sm:w-12 h-0.5 bg-[#d3c3be]/80 hidden sm:block"></div>
+                <div className="bg-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg shadow-xs border border-[#817470]/10 flex-1 mx-0.5 sm:mx-1">
+                  <span className="block text-label-technical text-[9px] sm:text-[10px] text-[#817470] uppercase">
                     3. Trabajo Beta V
                   </span>
-                  <span className="font-headline-sm text-[18px] text-[#775a00] font-serif font-bold">
+                  <span className="font-headline-sm text-[15px] sm:text-[18px] text-[#775a00] font-serif font-bold">
                     {recipe.tempWork}
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
           </div>
 
           {/* Technical Parameters Bento */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
             <div className="bg-[#f0edea] p-3 rounded-lg border border-[#d3c3be]/30">
               <span className="font-label-technical text-[10px] text-[#817470] uppercase block mb-1">
                 Molde Requerido
@@ -251,14 +251,14 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 bg-[#f6f3f0] border-t border-[#817470]/15 flex flex-wrap justify-between items-center gap-3">
-          <span className="font-label-technical text-[10px] text-[#817470] uppercase">
+        <div className="p-3.5 sm:p-4 bg-[#f6f3f0] border-t border-[#817470]/15 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
+          <span className="font-label-technical text-[9.5px] sm:text-[10px] text-[#817470] uppercase">
             Atelier Cacao • Idea y Propiedad Exclusiva de EBYZOM E.I.R.L.
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
             <button
               onClick={() => onOpenFullRecipe(recipe.id)}
-              className="px-4 py-2 bg-[#271812] text-white rounded-lg font-label-technical text-[11px] uppercase tracking-wider flex items-center gap-1.5 hover:bg-[#31302f] transition-colors cursor-pointer shadow-xs"
+              className="px-4 py-2 bg-[#271812] text-white rounded-lg font-label-technical text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#31302f] transition-colors cursor-pointer shadow-xs active:scale-95"
               type="button"
             >
               <span className="material-symbols-outlined text-[16px] text-[#fed269]">
@@ -267,7 +267,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
               <span>Abrir Ficha de Taller Completa</span>
             </button>
             <button
-              className="px-3.5 py-2 bg-[#e5e2df] text-[#1b1c1a] rounded-lg font-label-technical text-[11px] uppercase tracking-wider flex items-center gap-1.5 hover:bg-[#d3c3be] transition-colors cursor-pointer"
+              className="px-3.5 py-2 bg-[#e5e2df] text-[#1b1c1a] rounded-lg font-label-technical text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 hover:bg-[#d3c3be] transition-colors cursor-pointer active:scale-95"
               onClick={handlePrintRecipe}
               type="button"
             >

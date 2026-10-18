@@ -271,9 +271,9 @@ export const TemperingCurvasView: React.FC = () => {
             </div>
 
             {/* Ambient Conditions Card */}
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-[#f0edea] shadow-xs border border-[#d3c3be]/40 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-[#f0edea] shadow-xs border border-[#d3c3be]/40 flex-shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#e5e2df] flex items-center justify-center text-[#271812]">
+                <div className="w-10 h-10 rounded-lg bg-[#e5e2df] flex items-center justify-center text-[#271812] shrink-0">
                   <span className="material-symbols-outlined text-[20px]">
                     thermostat
                   </span>
@@ -287,9 +287,10 @@ export const TemperingCurvasView: React.FC = () => {
                   </span>
                 </div>
               </div>
-              <div className="h-8 w-px bg-[#d3c3be]/60"></div>
+              <div className="hidden sm:block h-8 w-px bg-[#d3c3be]/60"></div>
+              <div className="block sm:hidden w-full h-px bg-[#d3c3be]/40"></div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#e5e2df] flex items-center justify-center text-[#271812]">
+                <div className="w-10 h-10 rounded-lg bg-[#e5e2df] flex items-center justify-center text-[#271812] shrink-0">
                   <span className="material-symbols-outlined text-[20px]">
                     humidity_percentage
                   </span>
@@ -794,7 +795,7 @@ export const TemperingCurvasView: React.FC = () => {
                   </div>
 
                   {/* Gross Batch Requirement */}
-                  <div className="p-3.5 rounded-lg bg-[#271812] text-white flex items-center justify-between shadow-xs">
+                  <div className="p-3.5 rounded-lg bg-[#271812] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-xs">
                     <div>
                       <span className="font-label-technical text-[10px] uppercase text-[#fadcd2] block tracking-wider font-bold">
                         Chocolate a Atemperar en Cuenco
@@ -803,8 +804,8 @@ export const TemperingCurvasView: React.FC = () => {
                         Incluye +25% de lastre de vaciado para evitar burbujas
                       </span>
                     </div>
-                    <div className="text-right">
-                      <span className="font-display-hero text-[30px] font-serif font-bold text-[#fadcd2]">
+                    <div className="text-left sm:text-right">
+                      <span className="font-display-hero text-[26px] sm:text-[30px] font-serif font-bold text-[#fadcd2]">
                         {dosimetry.bowlBatchGrams} g
                       </span>
                     </div>

@@ -18,23 +18,23 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className="fixed top-0 w-full z-50 bg-[#fcf9f6]/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[#817470]/10">
-      <div className="h-20 max-w-[1380px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+      <div className="h-20 max-w-[1380px] mx-auto px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand / Logo */}
-        <div className="flex items-center gap-4 flex-shrink-0">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
           <button
             onClick={() => setCurrentTab("catalog")}
-            className="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none"
+            className="flex items-center gap-2 sm:gap-2.5 text-left group cursor-pointer focus:outline-none"
           >
             <img
               alt="Atelier Cacao Logo"
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Z1Iu9_kWSVWa50o88Jt0ZzYxXUaLmgmokVqHuL97ZhCiGxJr4GP6TNxb-unMaLHajN5nK1Qq_pnoERO5qGE1k97N8aHhhuwU7o5MfV9ad36PBhoa7AAePK_s3D1VfELvouaJ2Ppdy30EC0ZYSMEc2-iX0D9YoB-BAPNZxyM4I1qn5thH1RNcP7Mjc0VJZ59ibW-Ce0Zzke3R_wTVs1zsKF1eeZbQ8Hu8ukefJu-wUzcmORU6ccMF"
             />
             <div className="flex flex-col">
-              <span className="font-headline-sm text-[20px] font-bold tracking-tight text-[#1b1c1a] leading-none">
+              <span className="font-headline-sm text-[16px] sm:text-[20px] font-bold tracking-tight text-[#1b1c1a] leading-none">
                 Atelier Cacao
               </span>
-              <span className="font-label-technical text-[10px] tracking-widest text-[#817470] uppercase mt-0.5">
+              <span className="font-label-technical text-[8.5px] sm:text-[10px] tracking-widest text-[#817470] uppercase mt-0.5">
                 Fernandina de Jagua
               </span>
             </div>
@@ -86,31 +86,32 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Search Command Box */}
-        <div className="flex items-center gap-2 flex-1 max-w-xs lg:max-w-sm ml-auto mr-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-1 max-w-[130px] min-[420px]:max-w-[180px] sm:max-w-xs lg:max-w-sm ml-auto mr-1 sm:mr-2">
           <button
             type="button"
             onClick={onOpenSearch}
-            className="w-full pl-9 pr-12 py-1.5 bg-[#f0edea] text-[13px] text-left font-sans text-[#1b1c1a] rounded-lg hover:bg-[#eae8e5] focus:outline-none focus:ring-1 focus:ring-[#817470] relative flex items-center transition-colors cursor-pointer group"
+            className="w-full pl-8 sm:pl-9 pr-2 sm:pr-12 py-1.5 bg-[#f0edea] text-[12.5px] sm:text-[13px] text-left font-sans text-[#1b1c1a] rounded-lg hover:bg-[#eae8e5] focus:outline-none focus:ring-1 focus:ring-[#817470] relative flex items-center transition-colors cursor-pointer group"
           >
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#817470] group-hover:text-[#1b1c1a] text-[18px]">
+            <span className="material-symbols-outlined absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-[#817470] group-hover:text-[#1b1c1a] text-[17px] sm:text-[18px]">
               search
             </span>
             <span className="text-[#817470] truncate group-hover:text-[#4f4541]">
-              Buscar bombón, molde, origen...
+              <span className="hidden sm:inline">Buscar bombón, molde, origen...</span>
+              <span className="sm:hidden">Buscar...</span>
             </span>
-            <kbd className="absolute right-2.5 top-1/2 -translate-y-1/2 font-label-technical text-[10px] text-[#817470] bg-[#e5e2df] px-1.5 py-0.5 rounded shadow-2xs">
+            <kbd className="hidden sm:inline-block absolute right-2.5 top-1/2 -translate-y-1/2 font-label-technical text-[10px] text-[#817470] bg-[#e5e2df] px-1.5 py-0.5 rounded shadow-2xs">
               ⌘K
             </kbd>
           </button>
         </div>
 
         {/* Right Action & Insumos Lima */}
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
           {onOpenLimaGuide && (
             <button
               type="button"
               onClick={onOpenLimaGuide}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#fed269]/25 hover:bg-[#fed269]/40 text-[#775a00] border border-[#fed269]/60 rounded-lg font-label-technical text-[11px] uppercase tracking-wider transition-all cursor-pointer font-bold shadow-2xs active:scale-95"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 bg-[#fed269]/25 hover:bg-[#fed269]/40 text-[#775a00] border border-[#fed269]/60 rounded-lg font-label-technical text-[10.5px] sm:text-[11px] uppercase tracking-wider transition-all cursor-pointer font-bold shadow-2xs active:scale-95"
               title="Guía de insumos, sustitutos y proveedores en Lima, Perú"
             >
               <span>🇵🇪</span>

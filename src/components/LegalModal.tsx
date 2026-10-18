@@ -51,10 +51,10 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex border-b border-[#d3c3be]/35 bg-[#f0edea]/60 px-6 gap-2">
+        <div className="flex border-b border-[#d3c3be]/35 bg-[#f0edea]/60 px-4 sm:px-6 gap-2 overflow-x-auto">
           <button
             onClick={() => setActiveTab("credits")}
-            className={`py-3 px-3 font-label-technical text-[11px] uppercase tracking-wider border-b-2 transition-colors cursor-pointer ${
+            className={`py-3 px-3 font-label-technical text-[11px] uppercase tracking-wider border-b-2 transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
               activeTab === "credits"
                 ? "border-[#271812] text-[#1b1c1a] font-bold"
                 : "border-transparent text-[#817470] hover:text-[#1b1c1a]"

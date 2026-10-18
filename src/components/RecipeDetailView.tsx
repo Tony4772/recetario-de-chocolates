@@ -86,7 +86,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
         </div>
 
         {/* Master Recipe Card */}
-        <div className="bg-white rounded-2xl border border-[#d3c3be]/45 shadow-md p-6 sm:p-10 space-y-8">
+        <div className="bg-white rounded-2xl border border-[#d3c3be]/45 shadow-md p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8">
           {/* Header Block */}
           <div className="border-b border-[#817470]/15 pb-6">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -113,10 +113,10 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               </div>
             </div>
 
-            <h1 className="font-headline-lg text-[28px] sm:text-[38px] font-serif font-bold text-[#1b1c1a] leading-tight mt-2">
+            <h1 className="font-headline-lg text-[26px] sm:text-[38px] font-serif font-bold text-[#1b1c1a] leading-tight mt-2">
               {recipe.title}
             </h1>
-            <p className="font-body-md text-[14px] sm:text-[15px] text-[#4f4541] mt-2">
+            <p className="font-body-md text-[13.5px] sm:text-[15px] text-[#4f4541] mt-2">
               Molde específico: <strong className="text-[#1b1c1a]">{recipe.mold}</strong> ({recipe.moldType}) • Base:{" "}
               <strong className="text-[#1b1c1a]">{recipe.chocolate}</strong> • Relleno:{" "}
               <strong className="text-[#1b1c1a]">{recipe.filling}</strong>
@@ -124,7 +124,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
           </div>
 
           {/* Crystallographic Curve Banner */}
-          <div className="bg-[#f6f3f0] p-5 sm:p-6 rounded-xl border border-[#d3c3be]/40">
+          <div className="bg-[#f6f3f0] p-4 sm:p-6 rounded-xl border border-[#d3c3be]/40">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <span className="font-label-technical text-[11px] uppercase tracking-widest text-[#775a00] font-bold flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[18px]">thermostat</span>
@@ -180,7 +180,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               <span className="font-label-technical text-[10px] text-[#817470] uppercase block">
                 Reposo Cristalización
               </span>
-              <span className="font-serif font-bold text-[16px] text-[#1b1c1a]">
+              <span className="font-serif font-bold text-[15px] sm:text-[16px] text-[#1b1c1a]">
                 {recipe.crystHours}
               </span>
             </div>
@@ -189,7 +189,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               <span className="font-label-technical text-[10px] text-[#817470] uppercase block">
                 Actividad de Agua (aw)
               </span>
-              <span className="font-serif font-bold text-[16px] text-[#775a00]">
+              <span className="font-serif font-bold text-[15px] sm:text-[16px] text-[#775a00]">
                 {recipe.aw ? `aw ${recipe.aw}` : "aw < 0.70"}
               </span>
             </div>
@@ -198,7 +198,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               <span className="font-label-technical text-[10px] text-[#817470] uppercase block">
                 Espesor Camisa
               </span>
-              <span className="font-serif font-bold text-[16px] text-[#1b1c1a]">
+              <span className="font-serif font-bold text-[15px] sm:text-[16px] text-[#1b1c1a]">
                 {recipe.shellThickness || "0.8 mm"}
               </span>
             </div>
@@ -207,14 +207,14 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               <span className="font-label-technical text-[10px] text-[#817470] uppercase block">
                 Tipo de Molde
               </span>
-              <span className="font-serif font-bold text-[16px] text-[#1b1c1a]">
+              <span className="font-serif font-bold text-[15px] sm:text-[16px] text-[#1b1c1a]">
                 {recipe.moldType}
               </span>
             </div>
           </div>
 
           {/* Scaler Toolbar */}
-          <div className="flex items-center justify-between p-3.5 bg-[#f6f3f0] rounded-xl border border-[#d3c3be]/35 print:hidden">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 bg-[#f6f3f0] rounded-xl border border-[#d3c3be]/35 print:hidden">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-[#775a00] text-[20px]">
                 scale
@@ -223,7 +223,7 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
                 Escalado de Lote en Obrador
               </span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5">
               {[
                 { factor: 1, label: "1x (1 Placa)" },
                 { factor: 2, label: "2x" },
