@@ -1,0 +1,6 @@
+{
+  "name": "Atelier Cacao - Haute Chocolaterie",
+  "description": "El Gran Recetario de Bombones y Figuras en Molde: 50 creaciones magistrales de alta chocolatería formuladas con rigor cristalográfico, encamisado milimétrico y emulsiones equilibradas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
