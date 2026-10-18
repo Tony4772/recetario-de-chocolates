@@ -5,6 +5,7 @@ interface HeaderProps {
   setCurrentTab: (tab: "catalog" | "recipe-detail" | "curves" | "molds" | "fillings") => void;
   onOpenSearch: () => void;
   onOpenDosimetry: () => void;
+  onOpenLimaGuide?: () => void;
   selectedRecipeId?: number;
 }
 
@@ -13,6 +14,7 @@ export const Header: React.FC<HeaderProps> = ({
   setCurrentTab,
   onOpenSearch,
   onOpenDosimetry,
+  onOpenLimaGuide,
 }) => {
   return (
     <header className="fixed top-0 w-full z-50 bg-[#fcf9f6]/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[#817470]/10">
@@ -102,12 +104,25 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Right Action & Profile */}
-        <div className="flex items-center gap-2.5 flex-shrink-0">
+        {/* Right Action & Insumos Lima */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {onOpenLimaGuide && (
+            <button
+              type="button"
+              onClick={onOpenLimaGuide}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#fed269]/25 hover:bg-[#fed269]/40 text-[#775a00] border border-[#fed269]/60 rounded-lg font-label-technical text-[11px] uppercase tracking-wider transition-all cursor-pointer font-bold shadow-2xs active:scale-95"
+              title="Guía de insumos, sustitutos y proveedores en Lima, Perú"
+            >
+              <span>🇵🇪</span>
+              <span className="hidden sm:inline">Insumos Lima</span>
+              <span className="sm:hidden">Lima</span>
+            </button>
+          )}
+
           <button
             type="button"
             onClick={onOpenDosimetry}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#271812] text-white rounded-lg font-label-temperature text-[13px] shadow-[0_4px_14px_rgba(35,20,14,0.12)] hover:bg-[#31302f] transition-all cursor-pointer active:scale-95"
+            className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#271812] text-white rounded-lg font-label-temperature text-[13px] shadow-[0_4px_14px_rgba(35,20,14,0.12)] hover:bg-[#31302f] transition-all cursor-pointer active:scale-95"
           >
             <span className="material-symbols-outlined text-[17px] text-[#fed269]">
               calculate
@@ -119,6 +134,15 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Secondary Nav Bar */}
       <div className="xl:hidden flex items-center gap-1 px-4 py-1.5 border-t border-[#817470]/10 overflow-x-auto text-[12px] bg-[#f6f3f0]">
+        {onOpenLimaGuide && (
+          <button
+            onClick={onOpenLimaGuide}
+            className="px-2.5 py-1 rounded whitespace-nowrap bg-[#fed269]/35 text-[#775a00] font-bold flex items-center gap-1 shrink-0 border border-[#fed269]/60"
+          >
+            <span>🇵🇪</span>
+            <span>Insumos Lima</span>
+          </button>
+        )}
         <button
           onClick={() => setCurrentTab("catalog")}
           className={`px-2.5 py-1 rounded whitespace-nowrap ${

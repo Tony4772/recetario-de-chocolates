@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import { Recipe, RECIPES_DATA } from "../data/recipes";
 import { isNutRecipe } from "./CatalogView";
+import { getLimaAdaptedIngredient } from "../data/limaIngredients";
 
 interface RecipeDetailViewProps {
   recipeId: number;
   onBackToCatalog: () => void;
   onSelectRecipeById: (id: number) => void;
+  onOpenLimaGuide?: () => void;
 }
 
 export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
   recipeId,
   onBackToCatalog,
   onSelectRecipeById,
+  onOpenLimaGuide,
 }) => {
   const [scale, setScale] = useState<number>(1);
+  const [peruMode, setPeruMode] = useState<boolean>(true);
   const [checkedIngredients, setCheckedIngredients] = useState<Record<number, boolean>>({});
 
   const recipe = RECIPES_DATA.find((r) => r.id === recipeId) || RECIPES_DATA[0];
@@ -245,20 +249,59 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-2">
             {/* Ingredients Column (5 cols) */}
             <div className="md:col-span-5 space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-[#817470]/15">
+              <div className="flex items-center justify-between pb-2 border-b border-[#817470]/15 flex-wrap gap-2">
                 <h3 className="font-headline-sm text-[20px] font-serif font-bold text-[#1b1c1a] flex items-center gap-2">
                   <span className="material-symbols-outlined text-[#775a00] text-[20px]">
                     receipt_long
                   </span>
                   Ingredientes ({scale}x)
                 </h3>
-                <span className="font-label-technical text-[10px] text-[#817470] uppercase">
-                  Mise en place
-                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPeruMode((prev) => !prev)}
+                    className={`px-2.5 py-1 rounded-lg text-[10.5px] font-label-technical uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1 border ${
+                      peruMode
+                        ? "bg-[#271812] text-white border-[#271812] shadow-xs"
+                        : "bg-[#f0edea] text-[#4f4541] border-[#d3c3be]/40 hover:bg-[#eae8e5]"
+                    }`}
+                    title="Alternar entre fórmula europea y adaptación para conseguir en Lima, Perú"
+                  >
+                    <span>🇵🇪</span>
+                    <span>{peruMode ? "Insumos Lima (Activo)" : "Adaptar a Lima"}</span>
+                  </button>
+                </div>
               </div>
 
+              {peruMode && (
+                <div className="p-3 rounded-xl bg-[#fed269]/20 border border-[#fed269]/40 text-[12px] text-[#775a00] space-y-1">
+                  <div className="flex items-center justify-between">
+                    <strong className="font-semibold flex items-center gap-1">
+                      <span>🇵🇪</span> Adaptación para conseguir en Lima, Perú
+                    </strong>
+                    {onOpenLimaGuide && (
+                      <button
+                        type="button"
+                        onClick={onOpenLimaGuide}
+                        className="underline text-[11px] font-bold cursor-pointer hover:text-[#1b1c1a]"
+                      >
+                        Ver Guía de Proveedores →
+                      </button>
+                    )}
+                  </div>
+                  <p className="text-[#4f4541]">
+                    <strong>Dónde comprar:</strong> {recipe.whereToBuyLima || "Mercado Central (Jr. Huallaga), Surquillo N°1 o Makro."}
+                  </p>
+                </div>
+              )}
+
               <ul className="space-y-2.5">
-                {recipe.ingredients.map((ing, idx) => {
+                {(peruMode && recipe.peruIngredients
+                  ? recipe.peruIngredients
+                  : recipe.ingredients.map((ing) =>
+                      peruMode ? getLimaAdaptedIngredient(ing) : ing
+                    )
+                ).map((ing, idx) => {
                   const isChecked = !!checkedIngredients[idx];
                   return (
                     <li

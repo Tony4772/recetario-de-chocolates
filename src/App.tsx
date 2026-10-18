@@ -8,6 +8,7 @@ import { MoldsView } from "./components/MoldsView";
 import { FillingsView } from "./components/FillingsView";
 import { RecipeDetailView } from "./components/RecipeDetailView";
 import { SearchCommandModal } from "./components/SearchCommandModal";
+import { LimaGuideModal } from "./components/LimaGuideModal";
 import { Recipe, RECIPES_DATA } from "./data/recipes";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [activeRecipeId, setActiveRecipeId] = useState<number>(1);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isLimaGuideOpen, setIsLimaGuideOpen] = useState(false);
 
   // Global ⌘K / Ctrl+K keyboard shortcut listener
   useEffect(() => {
@@ -69,6 +71,7 @@ export default function App() {
         }}
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenDosimetry={handleOpenDosimetry}
+        onOpenLimaGuide={() => setIsLimaGuideOpen(true)}
         selectedRecipeId={activeRecipeId}
       />
 
@@ -78,6 +81,7 @@ export default function App() {
           <CatalogView
             onSelectRecipe={handleSelectRecipe}
             onOpenFullRecipe={handleOpenFullRecipe}
+            onOpenLimaGuide={() => setIsLimaGuideOpen(true)}
           />
         )}
 
@@ -105,6 +109,7 @@ export default function App() {
               setActiveRecipeId(id);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+            onOpenLimaGuide={() => setIsLimaGuideOpen(true)}
           />
         )}
       </main>
@@ -114,6 +119,7 @@ export default function App() {
         recipe={selectedRecipe}
         onClose={() => setSelectedRecipe(null)}
         onOpenFullRecipe={handleOpenFullRecipe}
+        onOpenLimaGuide={() => setIsLimaGuideOpen(true)}
       />
 
       {/* Command Palette Search Modal */}
@@ -127,6 +133,12 @@ export default function App() {
           setCurrentTab(tab);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
+      />
+
+      {/* Guía Oficial de Insumos y Proveedores en Lima, Perú */}
+      <LimaGuideModal
+        isOpen={isLimaGuideOpen}
+        onClose={() => setIsLimaGuideOpen(false)}
       />
 
       {/* Footer */}

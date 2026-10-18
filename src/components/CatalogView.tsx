@@ -4,6 +4,7 @@ import { Recipe, RECIPES_DATA } from "../data/recipes";
 interface CatalogViewProps {
   onSelectRecipe: (recipe: Recipe) => void;
   onOpenFullRecipe: (recipeId: number) => void;
+  onOpenLimaGuide?: () => void;
 }
 
 export const NUT_KEYWORDS = [
@@ -44,6 +45,7 @@ export const isNutRecipe = (r: Recipe): boolean => {
 export const CatalogView: React.FC<CatalogViewProps> = ({
   onSelectRecipe,
   onOpenFullRecipe,
+  onOpenLimaGuide,
 }) => {
   const [search, setSearch] = useState("");
   const [moldFilter, setMoldFilter] = useState<string>("all");
@@ -248,6 +250,44 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
         </section>
       </div>
 
+      {/* Peru Atelier Highlight Banner */}
+      <section className="max-w-[1380px] w-full mx-auto px-4 sm:px-6 pb-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#fed269]/20 via-[#fcf9f6] to-[#fadcd2]/30 border border-[#fed269]/50 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-start gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-[#271812] text-white flex items-center justify-center shrink-0 shadow-sm text-lg">
+              🇵🇪
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-label-technical text-[10.5px] uppercase tracking-wider text-[#775a00] font-bold">
+                  Formulaciones 100% Adaptables a Lima, Perú
+                </span>
+                <span className="text-[#817470] text-xs">•</span>
+                <span className="text-[12px] text-[#4f4541] font-medium">
+                  Mercado Central • Surquillo • Fadicor • Makro
+                </span>
+              </div>
+              <p className="font-body-sm text-[13px] text-[#4f4541] mt-0.5 leading-relaxed">
+                ¿No consigues Valrhona, avellanas de Piamonte o sal de Guérande? Cada una de las 54 recetas incluye su <strong className="text-[#1b1c1a]">adaptación con coberturas peruanas (Cacaosuyo, Negusa, Belcolade, La Ibérica)</strong>, pecanas de Ica, castañas de Madre de Dios, frutas frescas y sal de Maras.
+              </p>
+            </div>
+          </div>
+
+          {onOpenLimaGuide && (
+            <button
+              type="button"
+              onClick={onOpenLimaGuide}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#271812] hover:bg-[#31302f] text-white rounded-xl font-label-technical text-[11px] uppercase tracking-wider transition-all cursor-pointer font-bold shadow-xs shrink-0 self-stretch md:self-auto justify-center active:scale-95"
+            >
+              <span className="material-symbols-outlined text-[17px] text-[#fed269]">
+                storefront
+              </span>
+              <span>Directorio de Compras en Lima</span>
+            </button>
+          )}
+        </div>
+      </section>
+
       {/* Interactive Control Deck & Filter Rail */}
       <section className="max-w-[1380px] w-full mx-auto px-4 sm:px-6 pb-6">
         <div className="bg-[#f6f3f0] p-4 sm:p-5 rounded-2xl shadow-[0px_12px_32px_-4px_rgba(35,20,14,0.04)] space-y-3.5 border border-[#d3c3be]/40">
@@ -334,6 +374,19 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                 )}
               </button>
 
+              {/* Lima Peru Supply Guide Button */}
+              {onOpenLimaGuide && (
+                <button
+                  type="button"
+                  onClick={onOpenLimaGuide}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-sans font-bold transition-all cursor-pointer border shadow-2xs bg-[#fed269]/25 hover:bg-[#fed269]/40 text-[#775a00] border-[#fed269]/50"
+                  title="Abrir la Guía de Proveedores de Cacao y Repostería en Lima, Perú"
+                >
+                  <span>🇵🇪</span>
+                  <span>Guía Lima (Proveedores)</span>
+                </button>
+              )}
+
               {/* View Mode Toggle */}
               <div className="flex items-center bg-[#e5e2df] p-1 rounded-xl">
                 <button
@@ -374,12 +427,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
               Capítulos:
             </span>
             {[
-              { id: "all", label: "Todos (1-50)" },
-              { id: "1", label: "I. Clásicos Policarbonato (1-10)" },
-              { id: "2", label: "II. Geometría & Color (11-20)" },
-              { id: "3", label: "III. Tabletas & Figuras Huecas (21-30)" },
-              { id: "4", label: "IV. Rellenos Líquidos & Gelées (31-40)" },
-              { id: "5", label: "V. Creaciones de Autor (41-50)" },
+              { id: "all", label: "Todos los Capítulos" },
+              { id: "6", label: "🇵🇪 VI. Cacao de Origen Perú (55-58)" },
+              { id: "1", label: "I. Clásicos Policarbonato" },
+              { id: "2", label: "II. Geometría & Color" },
+              { id: "3", label: "III. Tabletas & Figuras Huecas" },
+              { id: "4", label: "IV. Rellenos Líquidos & Gelées" },
+              { id: "5", label: "V. Creaciones de Autor" },
             ].map((ch) => (
               <button
                 key={ch.id}

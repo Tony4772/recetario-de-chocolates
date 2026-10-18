@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Recipe } from "../data/recipes";
 import { isNutRecipe } from "./CatalogView";
+import { getLimaAdaptedIngredient } from "../data/limaIngredients";
 
 interface RecipeModalProps {
   recipe: Recipe | null;
   onClose: () => void;
   onOpenFullRecipe: (recipeId: number) => void;
+  onOpenLimaGuide?: () => void;
 }
 
 export const RecipeModal: React.FC<RecipeModalProps> = ({
   recipe,
   onClose,
   onOpenFullRecipe,
+  onOpenLimaGuide,
 }) => {
+  const [peruMode, setPeruMode] = useState<boolean>(true);
   if (!recipe) return null;
 
   const handlePrintRecipe = () => {
@@ -153,17 +157,58 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             {/* Formulation Column */}
             <div>
-              <h4 className="font-headline-sm text-[18px] font-serif text-[#1b1c1a] mb-3 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#775a00] text-[20px]">
-                  receipt_long
-                </span>
-                Ingredientes &amp; Proporción
-              </h4>
+              <div className="flex items-center justify-between mb-2.5 flex-wrap gap-2">
+                <h4 className="font-headline-sm text-[18px] font-serif text-[#1b1c1a] flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[#775a00] text-[20px]">
+                    receipt_long
+                  </span>
+                  Ingredientes &amp; Proporción
+                </h4>
+                <button
+                  type="button"
+                  onClick={() => setPeruMode((prev) => !prev)}
+                  className={`px-2.5 py-1 rounded-lg text-[10.5px] font-label-technical uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1 border ${
+                    peruMode
+                      ? "bg-[#271812] text-white border-[#271812] shadow-xs"
+                      : "bg-[#f0edea] text-[#4f4541] border-[#d3c3be]/40 hover:bg-[#eae8e5]"
+                  }`}
+                  title="Alternar entre fórmula europea y adaptación para conseguir en Lima, Perú"
+                >
+                  <span>🇵🇪</span>
+                  <span>{peruMode ? "Insumos Lima (Activo)" : "Adaptar a Lima"}</span>
+                </button>
+              </div>
+
+              {peruMode && (
+                <div className="p-2.5 rounded-lg bg-[#fed269]/20 border border-[#fed269]/40 mb-3 text-[11.5px] text-[#775a00] leading-snug space-y-1">
+                  <div className="flex items-center justify-between">
+                    <strong className="block font-semibold">🇵🇪 Adaptado para conseguir en Lima:</strong>
+                    {onOpenLimaGuide && (
+                      <button
+                        type="button"
+                        onClick={onOpenLimaGuide}
+                        className="underline text-[11px] font-bold cursor-pointer hover:text-[#1b1c1a]"
+                      >
+                        Guía de Compras →
+                      </button>
+                    )}
+                  </div>
+                  <span className="text-[#4f4541] block">
+                    {recipe.whereToBuyLima || "Mercado Central (Jr. Huallaga), Surquillo N°1 o Makro."}
+                  </span>
+                </div>
+              )}
+
               <ul className="space-y-2 font-body-sm text-[13px] text-[#4f4541]">
-                {recipe.ingredients.map((ing, i) => (
+                {(peruMode && recipe.peruIngredients
+                  ? recipe.peruIngredients
+                  : recipe.ingredients.map((ing) =>
+                      peruMode ? getLimaAdaptedIngredient(ing) : ing
+                    )
+                ).map((ing, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="material-symbols-outlined text-[16px] text-[#775a00] mt-0.5 shrink-0">
-                      check_circle
+                      {peruMode ? "storefront" : "check_circle"}
                     </span>
                     <span>{ing}</span>
                   </li>

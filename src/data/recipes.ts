@@ -20,6 +20,10 @@ export interface Recipe {
   image?: string;
   aw?: number;
   shellThickness?: string;
+  isPeruFriendly?: boolean;
+  peruIngredients?: string[];
+  peruTip?: string;
+  whereToBuyLima?: string;
 }
 
 export const RECIPES_DATA: Recipe[] = [
@@ -1776,6 +1780,182 @@ export const RECIPES_DATA: Recipe[] = [
       "Reposar a 16°C con 60% HR y obturar con cobertura negra atemperada."
     ],
     tip: "La almendra Marcona española aporta un crujiente incomparable y un perfil dulce-oleico de la más alta nobleza."
+  },
+  {
+    id: 55,
+    title: "Bombón Cúpula de Lúcuma de Seda y Ganache al Pisco Quebranta",
+    chapter: 6,
+    chapterName: "Colección Cacao de Origen Perú",
+    mold: "CW1420 Cúpula Esférica (24 cav.)",
+    moldType: "Clásico",
+    chocolate: "Con Leche 38%",
+    chocolateType: "Leche",
+    filling: "Licor",
+    tempMelt: "45-48°C",
+    tempCool: "27-28°C",
+    tempWork: "29.5°C",
+    crystHours: "12h @ 16°C",
+    difficulty: "Iniciación",
+    pips: "•",
+    aw: 0.65,
+    shellThickness: "0.8 mm",
+    isPeruFriendly: true,
+    ingredients: [
+      "240g Cobertura con Leche peruana (La Ibérica, Negusa o Belcolade Perú)",
+      "90g Puré fino de lúcuma de seda fresca (sin grumos ni hebras)",
+      "60g Crema de leche UHT Laive o Gloria 35% MG",
+      "25ml Pisco Quebranta puro de Ica (o Mosto Verde)",
+      "20g Glucosa líquida repostera"
+    ],
+    steps: [
+      "Encamisar el molde de cúpula CW1420 con cobertura con leche atemperada a 29.5°C; vibrar y raspar limpio.",
+      "Calentar la crema de leche y la glucosa a 60°C; volcar sobre la pulpa de lúcuma tamizada y homogeneizar.",
+      "Atemperar la mezcla a 30°C e incorporar el Pisco Quebranta con batidor de inmersión para formar una emulsión sedosa.",
+      "Dosificar con manga pastelera en cada cavidad dejando 1.5mm de margen.",
+      "Dejar reposar 4 horas en ambiente fresco (16-18°C) y sellar la base con cobertura con leche atemperada."
+    ],
+    tip: "La lúcuma aporta una textura aterciopelada natural que reduce la necesidad de grasas añadidas. El pisco actúa como conservante y realzador aromático.",
+    peruIngredients: [
+      "240g Cobertura con Leche Negusa, Belcolade Perú o La Ibérica (Mercado Central Jr. Huallaga)",
+      "90g Lúcuma de seda madura de mercado limeño (Surquillo o Caquetá)",
+      "60g Crema de leche Laive o Gloria 35% (Wong / Makro / Metro)",
+      "25ml Pisco Quebranta Cuatro Gallos, Portón o Santiago Queirolo",
+      "20g Glucosa repostera Fratello o D'Pastel"
+    ],
+    peruTip: "Todos los insumos se consiguen en cualquier mercado distrital de Lima y en Makro o Jr. Huallaga.",
+    whereToBuyLima: "Mercado N°1 de Surquillo (para lúcuma de seda) y Jr. Huallaga (para moldes y chocolate por kilo)."
+  },
+  {
+    id: 56,
+    title: "Bombón Diamante de Caramelo de Algarrobina Piurana y Sal Rosada de Maras",
+    chapter: 6,
+    chapterName: "Colección Cacao de Origen Perú",
+    mold: "CW1614 Diamante Facetado (28 cav.)",
+    moldType: "Magnético",
+    chocolate: "Negro 70%",
+    chocolateType: "Negro",
+    filling: "Caramelo",
+    tempMelt: "50-52°C",
+    tempCool: "28-29°C",
+    tempWork: "31.5°C",
+    crystHours: "14h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.62,
+    shellThickness: "0.8 mm",
+    isPeruFriendly: true,
+    ingredients: [
+      "250g Cobertura Negra 70% Cacao Nativo (Piura o Cusco, o Negusa Bitter)",
+      "100g Algarrobina pura de algarrobo norteño (Piura)",
+      "80g Crema de leche 35% MG",
+      "40g Mantequilla pura de Cajamarca sin sal",
+      "3g Sal Rosada de Maras fina del Cusco"
+    ],
+    steps: [
+      "Pintar aristas del molde diamante con manteca de cacao templada dorada.",
+      "Encamisar con cobertura negra al 70% atemperada a 31.5°C.",
+      "Reducir a fuego bajo la algarrobina con la crema de leche hasta textura untuosa brillante (106°C).",
+      "Retirar del fuego y emulsionar a 40°C la mantequilla de Cajamarca con la sal de Maras.",
+      "Enfriar el toffee a 28°C, mangar en el molde y obturar tras 3 horas de cristalización."
+    ],
+    tip: "La algarrobina tiene azúcares naturales que sustituyen al caramelo quemado con notas de malta y bosque seco peruano.",
+    peruIngredients: [
+      "250g Cobertura Bitter 70% (Bakau, Cacaosuyo o Negusa Bitter 70%)",
+      "100g Algarrobina piurana auténtica (cualquier supermercado o tienda norteña en Lima)",
+      "80g Crema de leche fresca o UHT 35%",
+      "40g Mantequilla de Cajamarca (Huacariz o Laive sin sal)",
+      "3g Sal Rosada de Maras fina (de venta común en supermercados y mercados de Lima)"
+    ],
+    peruTip: "La Sal de Maras y la Algarrobina se compran fácilmente en cualquier tienda Wong, Plaza Vea o mercado limeño.",
+    whereToBuyLima: "Mercado Central de Lima / Supermercados Wong y Vivanda / Mercado de Productores de San Isidro."
+  },
+  {
+    id: 57,
+    title: "Bombón Lingote de Gianduja de Castañas Amazónicas y Cacao de Piura",
+    chapter: 6,
+    chapterName: "Colección Cacao de Origen Perú",
+    mold: "CW1908 Lingote Geométrico (32 cav.)",
+    moldType: "Clásico",
+    chocolate: "Negro 70%",
+    chocolateType: "Negro",
+    filling: "Gianduja",
+    tempMelt: "50-52°C",
+    tempCool: "28-29°C",
+    tempWork: "31.5°C",
+    crystHours: "16h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.30,
+    shellThickness: "0.85 mm",
+    isPeruFriendly: true,
+    ingredients: [
+      "250g Cobertura Negra 70% Cacao Blanco de Piura (o Bitter nacional)",
+      "140g Castañas amazónicas de Madre de Dios (Nueces de Brasil)",
+      "60g Azúcar impalpable tamizada",
+      "20g Manteca de cacao peruana",
+      "1 pizca Sal de Maras"
+    ],
+    steps: [
+      "Tostar las castañas amazónicas en horno a 140°C por 15 minutos hasta dorar suavemente.",
+      "Triturar en procesador potente con el azúcar impalpable hasta obtener una pasta fluida brillante y untuosa.",
+      "Integrar la manteca de cacao fundida y cobertura negra atemperada a 28°C.",
+      "Encamisar los lingotes CW1908 con chocolate negro a 31.5°C.",
+      "Dosificar la gianduja amazónica a 26°C y cerrar la base con rasqueta de acero."
+    ],
+    tip: "La castaña amazónica de Madre de Dios es más económica y fresca en Lima que la avellana europea, con un contenido de selenio y aroma tostado sublime.",
+    peruIngredients: [
+      "250g Cobertura Bitter 70% (Cacao Piura o Negusa)",
+      "140g Castañas de Madre de Dios peladas (Mercado Surquillo o La Parada / Mercado Central por kilo)",
+      "60g Azúcar impalpable Blanca Flor o Bells",
+      "20g Manteca de cacao pura (Jr. Huallaga)",
+      "1 pizca Sal de Maras"
+    ],
+    peruTip: "La castaña amazónica cuesta una fracción del precio de la avellana importada y su calidad en Lima es fresca y directa de la selva.",
+    whereToBuyLima: "Mercado N°1 de Surquillo (puestos de frutos secos) y Jr. Andahuaylas en Lima Centro."
+  },
+  {
+    id: 58,
+    title: "Bombón Semiesfera de Maracuyá Criollo y Praliné de Pecanas de Ica",
+    chapter: 6,
+    chapterName: "Colección Cacao de Origen Perú",
+    mold: "CW1032 Semiesfera (28 cav.)",
+    moldType: "Clásico",
+    chocolate: "Negro 70%",
+    chocolateType: "Negro",
+    filling: "Praliné",
+    tempMelt: "50-52°C",
+    tempCool: "28-29°C",
+    tempWork: "31.5°C",
+    crystHours: "14h @ 16°C",
+    difficulty: "Intermedio",
+    pips: "••",
+    aw: 0.58,
+    shellThickness: "0.85 mm",
+    isPeruFriendly: true,
+    ingredients: [
+      "260g Cobertura Negra 70% San Martín o Ucayali",
+      "80g Reducción de maracuyá criollo fresco (sin semillas)",
+      "120g Praliné crujiente de pecanas de Ica tostadas",
+      "30g Galletas de vainilla Field molidas",
+      "15g Manteca de cacao"
+    ],
+    steps: [
+      "Encamisar las semiesferas CW1032 con chocolate negro fino.",
+      "Preparar gelée ácida reduciendo pulpa fresca de maracuyá con 15g de azúcar y 2g de pectina.",
+      "Tostar las pecanas de Ica, caramelizar al 50% con azúcar y triturar rústico con la galleta molida.",
+      "Mangar una perla de gelée de maracuyá criollo a 25°C en el fondo.",
+      "Completar con el praliné de pecanas de Ica a 26°C y obturar herméticamente."
+    ],
+    tip: "El contraste entre la acidez electrizante del maracuyá fresco de la costa peruana y la grasa dulce de la pecana de Ica es inolvidable.",
+    peruIngredients: [
+      "260g Cobertura Bitter 70% (Negusa o Belcolade)",
+      "4 unidades de Maracuyá fresco grande (cualquier mercado de Lima)",
+      "120g Pecanas peladas de Ica (frescas en mercados y supermercados)",
+      "Galletas de vainilla Field o Margarita como crocante",
+      "15g Manteca de cacao (tiendas de repostería en Lima)"
+    ],
+    peruTip: "Las pecanas de Ica son el fruto seco estrella del Perú: siempre frescas, sin rancio y disponibles todo el año en Lima.",
+    whereToBuyLima: "Mercado de Frutas de San Luis o cualquier mercado distrital de Lima."
   }
 ];
 
