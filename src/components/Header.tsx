@@ -32,8 +32,8 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="font-headline-sm text-[20px] font-bold tracking-tight text-[#1b1c1a] leading-none">
                 Atelier Cacao
               </span>
-              <span className="font-label-technical text-[10px] tracking-widest text-[#817470] uppercase mt-0.5">
-                Haute Chocolaterie
+              <span className="font-label-technical text-[9.5px] tracking-wider text-[#775a00] font-bold uppercase mt-0.5">
+                Fernandina de Jagua • EBYZOM E.I.R.L.
               </span>
             </div>
           </button>

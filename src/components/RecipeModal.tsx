@@ -196,7 +196,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         {/* Modal Footer */}
         <div className="p-4 bg-[#f6f3f0] border-t border-[#817470]/15 flex flex-wrap justify-between items-center gap-3">
           <span className="font-label-technical text-[10px] text-[#817470] uppercase">
-            Atelier Cacao • Compendio de Haute Chocolaterie
+            Atelier Cacao • Idea y Propiedad Exclusiva de EBYZOM E.I.R.L.
           </span>
           <div className="flex items-center gap-2">
             <button

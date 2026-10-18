@@ -325,6 +325,11 @@ export const RecipeDetailView: React.FC<RecipeDetailViewProps> = ({
               </p>
             </div>
           </div>
+
+          <div className="pt-4 border-t border-[#817470]/15 flex flex-wrap items-center justify-between gap-2 text-[11px] font-label-technical text-[#817470] uppercase">
+            <span>Ficha Técnica Cristalográfica • Compendio Fernandina de Jagua</span>
+            <span>Idea y Propiedad Exclusiva de EBYZOM E.I.R.L.</span>
+          </div>
         </div>
       </section>
     </div>
