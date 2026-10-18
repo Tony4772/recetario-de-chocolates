@@ -15,8 +15,20 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
 }) => {
   if (!recipe) return null;
 
+  const handlePrintRecipe = () => {
+    document.body.classList.add("printing-recipe-modal");
+    const cleanup = () => {
+      document.body.classList.remove("printing-recipe-modal");
+      window.removeEventListener("afterprint", cleanup);
+    };
+    window.addEventListener("afterprint", cleanup);
+    window.print();
+    setTimeout(cleanup, 1500);
+  };
+
   return (
     <div
+      id="printable-recipe-modal"
       role="dialog"
       aria-modal="true"
       className="fixed inset-0 z-50 bg-[#31302f]/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
@@ -24,7 +36,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-[0px_20px_48px_-8px_rgba(35,20,14,0.25)] flex flex-col border border-[#d3c3be]/40 animate-in fade-in zoom-in-95 duration-200">
+      <div className="printable-recipe-sheet bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-[0px_20px_48px_-8px_rgba(35,20,14,0.25)] flex flex-col border border-[#d3c3be]/40 animate-in fade-in zoom-in-95 duration-200">
         {/* Modal Header */}
         <div className="p-6 bg-[#f6f3f0] border-b border-[#817470]/15 flex items-start justify-between relative">
           <div>
@@ -211,7 +223,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
             </button>
             <button
               className="px-3.5 py-2 bg-[#e5e2df] text-[#1b1c1a] rounded-lg font-label-technical text-[11px] uppercase tracking-wider flex items-center gap-1.5 hover:bg-[#d3c3be] transition-colors cursor-pointer"
-              onClick={() => window.print()}
+              onClick={handlePrintRecipe}
               type="button"
             >
               <span className="material-symbols-outlined text-[16px]">print</span>

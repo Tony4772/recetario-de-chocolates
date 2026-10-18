@@ -172,12 +172,75 @@
 
 /* Print Styles */
 @media print {
-  header, footer, nav, #btn-open-mold-calculator, .chapter-tab, button {
+  /* Global print defaults: hide headers, footers, navbars, and interactive buttons */
+  header,
+  footer,
+  nav,
+  #btn-open-mold-calculator,
+  .chapter-tab,
+  button,
+  [role="dialog"]:not(#printable-recipe-modal) {
     display: none !important;
   }
-  body, main {
+
+  body {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* When printing from the RecipeModal: HIDE <main> completely so the 50+ background recipes NEVER print! */
+  body.printing-recipe-modal main,
+  body:has(#printable-recipe-modal) main {
+    display: none !important;
+  }
+
+  /* Transform the modal into an unclipped, pristine, standalone recipe sheet */
+  body.printing-recipe-modal #printable-recipe-modal,
+  body:has(#printable-recipe-modal) #printable-recipe-modal {
+    position: static !important;
+    display: block !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  body.printing-recipe-modal #printable-recipe-modal .printable-recipe-sheet,
+  body:has(#printable-recipe-modal) #printable-recipe-modal .printable-recipe-sheet {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: 1px solid #d3c3be !important;
+    border-radius: 10px !important;
+    page-break-inside: avoid !important;
+    background: white !important;
+    color: black !important;
+    margin: 0 auto !important;
+  }
+
+  /* Hide close button and action buttons inside modal when printing */
+  #printable-recipe-modal button,
+  #printable-recipe-modal [aria-label="Cerrar modal"] {
+    display: none !important;
+  }
+
+  /* Full recipe view fallback */
+  main {
     background: white !important;
     color: black !important;
     padding-top: 0 !important;
   }
 }
+
